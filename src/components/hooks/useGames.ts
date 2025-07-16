@@ -2,9 +2,10 @@ import apiClient from "@/services/api-client";
 import { CanceledError } from "axios";
 import { useEffect, useState } from "react";
 
-interface GamesObject {
+export interface GamesObject {
     id: number;
     title: string;
+    thumbnail: string;
 }
 
 export const useGames = () => {
@@ -16,7 +17,6 @@ export const useGames = () => {
         apiClient
             .get<GamesObject[]>("/games", { signal: controller.signal })
             .then((res) => {
-                console.log(res.data);
                 return setGames(res.data);
             })
             .catch((err) => {
