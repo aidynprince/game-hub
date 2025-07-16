@@ -4,7 +4,12 @@ import { Toggle } from "./darkmode";
 const NavBar = () => {
     return (
         <HStack justifyContent="space-between" padding={3}>
-            <Image src={logo} boxSize="60px"></Image>
+            <Image
+                src={logo}
+                boxSize="60px"
+                borderRadius="5px"
+                bg="white"
+            ></Image>
 
             <Toggle></Toggle>
         </HStack>
