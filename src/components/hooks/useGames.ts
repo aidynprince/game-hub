@@ -7,6 +7,7 @@ export interface GamesObject {
     title: string;
     thumbnail: string;
     platform: string;
+    genre: string;
 }
 
 export const useGames = () => {

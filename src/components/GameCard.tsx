@@ -1,4 +1,4 @@
-import { Card, Image, Text } from "@chakra-ui/react";
+import { Badge, Card, HStack, Image, Text } from "@chakra-ui/react";
 import type { GamesObject } from "./hooks/useGames";
 import Platform from "./Platform";
 
@@ -27,7 +27,11 @@ const GameCard = ({ game }: Props) => {
                         mt="2"
                         color="gray.500"
                     >
-                        <Platform platform={game.platform}></Platform>
+                        <HStack justifyContent={"space-between"}>
+                            {" "}
+                            <Platform platform={game.platform}></Platform>
+                            <Badge>{game.genre}</Badge>
+                        </HStack>
                     </Text>
                 </Card.Body>
             </Card.Root>
