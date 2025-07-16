@@ -6,6 +6,7 @@ export interface GamesObject {
     id: number;
     title: string;
     thumbnail: string;
+    platform: string;
 }
 
 export const useGames = () => {

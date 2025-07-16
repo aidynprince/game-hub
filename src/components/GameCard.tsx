@@ -1,5 +1,6 @@
 import { Card, Image, Text } from "@chakra-ui/react";
 import type { GamesObject } from "./hooks/useGames";
+import Platform from "./Platform";
 
 interface Props {
     game: GamesObject;
@@ -15,17 +16,19 @@ const GameCard = ({ game }: Props) => {
                 />
                 <Card.Body gap="2">
                     <Card.Title>{game.title}</Card.Title>
+
                     {/* <Card.Description>
          
         </Card.Description> */}
-                    {/* <Text
-                        textStyle="2xl"
-                        fontWeight="medium"
+                    <Text
+                        textStyle="sm"
+                        fontWeight="lighter"
                         letterSpacing="tight"
                         mt="2"
+                        color="gray.500"
                     >
-                        $450
-                    </Text> */}
+                        <Platform platform={game.platform}></Platform>
+                    </Text>
                 </Card.Body>
             </Card.Root>
         </>

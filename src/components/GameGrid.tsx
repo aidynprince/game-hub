@@ -23,8 +23,8 @@ const GameGrid = () => {
                         (arr = games.map((g) => {
                             if (count > 21) return;
                             count++;
-                            console.log(count);
-                            return <GameCard game={g}></GameCard>;
+
+                            return <GameCard key={g.id} game={g}></GameCard>;
                         }))
                     }
                 </SimpleGrid>
