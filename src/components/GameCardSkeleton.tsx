@@ -1,17 +1,9 @@
-import {
-    Badge,
-    Card,
-    HStack,
-    Skeleton,
-    SkeletonText,
-    Stack,
-} from "@chakra-ui/react";
-import Platform from "./Platform";
+import { Card, HStack, Skeleton, SkeletonText } from "@chakra-ui/react";
 
 const GameCardSkeleton = () => {
     return (
-        <Card.Root maxW="sm" width={300} overflow="hidden">
-            <Skeleton height="200px" width={300} />
+        <Card.Root>
+            <Skeleton height="200px" />
             <Card.Body gap="2">
                 <HStack justifyContent={"space-between"}>
                     <SkeletonText noOfLines={1} />

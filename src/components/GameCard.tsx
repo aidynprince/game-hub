@@ -9,7 +9,7 @@ interface Props {
 const GameCard = ({ game }: Props) => {
     return (
         <>
-            <Card.Root maxW="sm" width={300} overflow="hidden">
+            <Card.Root>
                 <Image
                     src={game.thumbnail}
                     alt="Green double couch with wooden legs"
