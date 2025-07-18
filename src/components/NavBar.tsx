@@ -9,6 +9,7 @@ const NavBar = () => {
                 boxSize="60px"
                 borderRadius="5px"
                 bg="white"
+                alt="aidyn logo"
             ></Image>
 
             <Toggle></Toggle>
