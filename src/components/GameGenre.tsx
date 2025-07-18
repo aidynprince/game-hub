@@ -1,13 +1,19 @@
+import { List, Spinner } from "@chakra-ui/react";
 import { useGenres } from "./hooks/useGenres";
 
 const GameGenre = () => {
-    const { genreArray } = useGenres();
+    const { genreArray, loading, error } = useGenres();
+
+    if (loading) return <Spinner></Spinner>;
+    if (error) return null;
     return (
-        <ul>
+        <List.Root>
             {genreArray.map((genre) => (
-                <li key={genre}>{genre}</li>
+                <List.Item key={genre} listStyle="none">
+                    {genre}
+                </List.Item>
             ))}
-        </ul>
+        </List.Root>
     );
 };
 

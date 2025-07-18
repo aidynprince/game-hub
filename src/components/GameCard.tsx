@@ -11,6 +11,7 @@ const GameCard = ({ game }: Props) => {
         <>
             <Card.Root>
                 <Image
+                    overflow="hidden"
                     src={game.thumbnail}
                     alt="Green double couch with wooden legs"
                 />
