@@ -1,7 +1,6 @@
 import { Button, Menu, Portal } from "@chakra-ui/react";
 import { FaChevronDown } from "react-icons/fa6";
 import { usePlatform } from "./hooks/usePlatform";
-import Platform from "./Platform";
 
 interface Props {
     setSelectedPlatform: (selectedPlatform: string) => void;
