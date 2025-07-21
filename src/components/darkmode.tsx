@@ -1,23 +1,26 @@
 ("use client");
 
-import { useColorMode } from "./ui/color-mode";
+import { useColorMode, useColorModeValue } from "./ui/color-mode";
 
 import { Switch } from "@chakra-ui/react";
-import { Button } from "@chakra-ui/react";
 
-const Btn = () => {
-    const { toggleColorMode } = useColorMode();
-    return (
-        <Button variant="outline" bg="red" onClick={toggleColorMode}>
-            Toggle Mode
-        </Button>
-    );
-};
+// const Btn = () => {
+//     const { toggleColorMode } = useColorMode();
+//     return (
+//         <Button variant="outline" bg="red" onClick={toggleColorMode}>
+//             Toggle Mode
+//         </Button>
+//     );
+// };
 
 const Toggle = () => {
     const { toggleColorMode, colorMode } = useColorMode();
+    const bg = useColorModeValue("white", "black");
+    const hoverBg = useColorModeValue("black", "white");
+    const color = useColorModeValue("black", "white");
+    const hoverColor = useColorModeValue("white", "black");
 
-    return (
+    const SwitchButton = (
         <Switch.Root
             checked={colorMode === "dark"}
             colorPalette="green"
@@ -30,5 +33,6 @@ const Toggle = () => {
             <Switch.Label />
         </Switch.Root>
     );
+    return { SwitchButton, bg, hoverBg, color, hoverColor };
 };
-export { Btn, Toggle };
+export { Toggle };

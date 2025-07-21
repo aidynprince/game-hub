@@ -1,19 +1,24 @@
-import { SimpleGrid, Text } from "@chakra-ui/react";
+import { SimpleGrid } from "@chakra-ui/react";
 import { useGames } from "./hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
 
-const GameGrid = () => {
-    const { error, games, loading } = useGames();
+interface Props {
+    selectedGenre: string | null | undefined;
+    selectedPlatform: string | null | undefined;
+}
+
+const GameGrid = ({ selectedGenre, selectedPlatform }: Props) => {
+    const { error, games, loading } = useGames(selectedGenre, selectedPlatform);
     let count = 0;
     let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    if (error) {
+        return <div> cannot find this category Reloading page</div>;
+    }
 
     return (
         <>
-            {console.log(loading)}
-            {error && <Text>{error}</Text>}
-
             {
                 <SimpleGrid
                     columns={{ sm: 1, md: 2, lg: 3 }}
@@ -24,8 +29,8 @@ const GameGrid = () => {
                 >
                     {loading &&
                         arr.map((el) => (
-                            <GameCardContainer>
-                                <GameCardSkeleton key={el}></GameCardSkeleton>
+                            <GameCardContainer key={el}>
+                                <GameCardSkeleton></GameCardSkeleton>
                             </GameCardContainer>
                         ))}
                     {games.map((g) => {
@@ -33,8 +38,8 @@ const GameGrid = () => {
                         count++;
 
                         return (
-                            <GameCardContainer>
-                                <GameCard key={g.id} game={g}></GameCard>
+                            <GameCardContainer key={g.id}>
+                                <GameCard game={g}></GameCard>
                             </GameCardContainer>
                         );
                     })}

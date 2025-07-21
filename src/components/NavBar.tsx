@@ -2,6 +2,7 @@ import { HStack, Image } from "@chakra-ui/react";
 import logo from "../assets/aidynlogo.png";
 import { Toggle } from "./darkmode";
 const NavBar = () => {
+    const { SwitchButton } = Toggle();
     return (
         <HStack justifyContent="space-between" padding={3}>
             <Image
@@ -12,7 +13,7 @@ const NavBar = () => {
                 alt="aidyn logo"
             ></Image>
 
-            <Toggle></Toggle>
+            {SwitchButton}
         </HStack>
     );
 };
