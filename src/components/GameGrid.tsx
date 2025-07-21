@@ -5,15 +5,22 @@ import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
 
 interface Props {
-    selectedGenre: string | null | undefined;
-    selectedPlatform: string | null | undefined;
+    selectedGenre?: string | null | undefined;
+    selectedPlatform?: string | null | undefined;
+    selectedSort?: string | null | undefined;
 }
 
-const GameGrid = ({ selectedGenre, selectedPlatform }: Props) => {
-    const { error, games, loading } = useGames(selectedGenre, selectedPlatform);
+const GameGrid = ({ selectedGenre, selectedPlatform, selectedSort }: Props) => {
+    const { error, games, loading } = useGames(
+        selectedGenre,
+        selectedPlatform,
+        selectedSort
+    );
     let count = 0;
     let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
     if (error) {
+        console.log(error, games);
+
         return <div> cannot find this category Reloading page</div>;
     }
 

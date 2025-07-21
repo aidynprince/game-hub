@@ -1,7 +1,7 @@
 import { useData } from "./useData";
 
 export const useGenres = () => {
-    const { games, error, loading } = useData("./games", "");
+    const { games, error, loading } = useData("./games", "", "");
 
     const genreSet = new Set<string>();
 

@@ -1,14 +1,23 @@
 import { Menu, Button, Portal } from "@chakra-ui/react";
 import { FaChevronDown } from "react-icons/fa";
-import { usePlatform } from "./hooks/usePlatform";
 
-const SortSelector = () => {
-    // if (error) return null;
+interface Props {
+    setSelectedSort: (selectedSort: string) => void;
+    selectedSort?: string | null;
+}
+
+const SortSelector = ({ setSelectedSort, selectedSort }: Props) => {
+    const sortArray = [
+        "release-date",
+        "popularity",
+        "alphabetical",
+        "relevance",
+    ];
     return (
         <Menu.Root>
             <Menu.Trigger asChild>
                 <Button variant="outline" size="sm">
-                    order By
+                    order By {selectedSort || ""}
                     <FaChevronDown />
                 </Button>
             </Menu.Trigger>
@@ -16,15 +25,15 @@ const SortSelector = () => {
                 <Menu.Positioner>
                     <Menu.Content>
                         <Menu.ItemGroup>
-                            <Menu.ItemGroupLabel>Order by:</Menu.ItemGroupLabel>
-                            <Menu.Item value="relevance">relevance</Menu.Item>
-                            <Menu.Item value="alphabetical">
-                                alphabetical
-                            </Menu.Item>
-                            <Menu.Item value="popularity">popularity</Menu.Item>
-                            <Menu.Item value="Released-date">
-                                Released Date
-                            </Menu.Item>
+                            {sortArray.map((sort) => (
+                                <Menu.Item
+                                    key={sort}
+                                    onClick={() => setSelectedSort(sort)}
+                                    value={sort}
+                                >
+                                    {sort}
+                                </Menu.Item>
+                            ))}
                         </Menu.ItemGroup>
                     </Menu.Content>
                 </Menu.Positioner>
