@@ -4,10 +4,10 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vite.dev/config/
 export default defineConfig({
-    server: {
-        proxy: {
-            "/api": "https://www.freetogame.com/api",
-        },
-    },
+    // server: {
+    //     proxy: {
+    //         "/api": "https://www.freetogame.com/api",
+    //     },
+    // },
     plugins: [react(), tsconfigPaths()],
 });
