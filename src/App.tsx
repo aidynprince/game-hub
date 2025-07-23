@@ -1,11 +1,12 @@
 import "./App.css";
-import { Grid, GridItem, HStack } from "@chakra-ui/react";
+import { Box, Grid, GridItem, HStack } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
 import GameGenre from "./components/GameGenre";
 import { useState } from "react";
 import PlatformSelector from "./components/PlatformSelector";
 import SortSelector from "./components/SortSelector";
+import GameHeading from "./components/GameHeading";
 
 function App() {
     const [selectedGenere, setSelectedgenre] = useState<string | null>();
@@ -24,6 +25,13 @@ function App() {
         >
             <GridItem area="nav">
                 <NavBar></NavBar>
+                <Box paddingLeft="20%" margin={2}>
+                    <GameHeading
+                        selectedGenere={selectedGenere}
+                        selectedPlatform={selectedPlatform}
+                        selectedSort={selectedSort}
+                    ></GameHeading>
+                </Box>
             </GridItem>
 
             <GridItem

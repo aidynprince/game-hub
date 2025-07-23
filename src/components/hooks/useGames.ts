@@ -34,8 +34,6 @@ export const useGames = (
     const deps3 = [selectedSort || null];
     const deps4 = [selectedSort, selectedPlatform || null];
 
-    console.log(deps1, deps2, deps3);
-
     const { games, error, loading } = useData(
         endpoint1,
         endpoint4,
