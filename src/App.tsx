@@ -34,7 +34,7 @@ function App() {
                 </Box>
             </GridItem>
 
-            <GridItem
+            <GridItem 
                 position="sticky"
                 overflowY="auto"
                 maxHeight="90vh"
